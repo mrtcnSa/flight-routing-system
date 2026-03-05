@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # 1. VERİTABANI
+  db:
+    image: postgres:15
+    container_name: flight_routing_db
+    environment:
+      POSTGRES_DB: flight_routing_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    # İŞTE BU İKİ SATIR VERİLERİNİ KORUYACAK:
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  # 2. ÖNBELLEK (CACHE)
+  redis:
+    image: redis:alpine
+    container_name: flight_routing_redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  # 3. BİZİM UYGULAMAMIZ (BACKEND)
+  app:
+    build: .
+    container_name: flight_routing_app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - redis
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/flight_routing_db
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATA_REDIS_HOST: redis
+    restart: always
+
+
+volumes:
+  pgdata:
