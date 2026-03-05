@@ -10,7 +10,7 @@ Bu proje, karmaşık uçuş ve ulaşım verilerini yöneterek kullanıcılar iç
 * **Merkezi Hata Yönetimi:** Tüm uygulama genelinde tutarlı HTTP statü kodları dönen `@RestControllerAdvice` tabanlı `GlobalExceptionHandler` ve özel hata sınıfları (Custom Exceptions).
 * **Otomatik Eşleme:** `mapper` katmanında MapStruct kullanılarak entity ve DTO'lar arası yüksek performanslı, tip güvenli veri dönüşümü.
 * **Güvenlik:** `SecurityConfig` ile yapılandırılmış Spring Security katmanı.
-* **Dokümantasyon:** `OpenApiConfig` üzerinden entegre edilen, interaktif Swagger arayüzü.
+* **Dokümantasyon:** `OpenApiConfig` üzerinden entrege edilen, interaktif Swagger arayüzü.
 * **Konteyner Desteği:** Dockerfile ve docker-compose ile her ortamda (veritabanı ve önbellek dahil) tek tuşla hızlı kurulum.
 
 ## 🛠️ Teknoloji Yığını
@@ -39,13 +39,6 @@ src/main/java/.../flight_routing_system/
 ├── service/      # Ana iş mantığı ve rota hesaplama algoritmaları
 └── util/         # AppConstants ve StringUtil gibi global yardımcı araçlar
 
-
-
-## 📐 Sistem Mimarisi ve Veritabanı İlişkileri (Class Diagram)
-
-Aşağıdaki diyagram, sistemdeki temel Entity'lerin ve birbirleriyle olan ilişkilerinin veritabanına nasıl yansıdığını göstermektedir. Çift yönlü (Bidirectional) OneToMany ilişkiler kullanılmıştır.
-
-```mermaid
 classDiagram
     direction TB
     class Location {
@@ -70,4 +63,3 @@ classDiagram
     Location "1" *-- "*" Transportation : originLocation
     Location "1" *-- "*" Transportation : destinationLocation
     Transportation ..> TransportationType : uses
-
