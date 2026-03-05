@@ -38,5 +38,12 @@ src/main/java/.../flight_routing_system/
 ├── repository/   # Veritabanı erişim ve sorgulama katmanı
 ├── service/      # Ana iş mantığı ve rota hesaplama algoritmaları
 └── util/         # AppConstants ve StringUtil gibi global yardımcı araçlar
+```
 
+## 📐 Sistem Mimarisi ve Veritabanı İlişkileri (Class Diagram)
 
+![Sistem Mimarisi](https://github.com/user-attachments/assets/687f00bc-e4fb-4e6d-97af-32c801345554)
+
+## 🔄 Rota Arama Algoritması Akışı (Sequence Diagram)
+
+![Akış Şeması](https://github.com/user-attachments/assets/76c5d966-cfd5-43eb-9721-257493135714)
