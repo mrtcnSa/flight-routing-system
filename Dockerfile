@@ -4,7 +4,7 @@ FROM eclipse-temurin:17-jdk-alpine
 # Konteyner içinde çalışacağımız klasörü belirle
 WORKDIR /app
 
-# Az önce ürettiğimiz JAR dosyasını konteynerin içine 'app.jar' adıyla kopyala
+# JAR dosyasını konteynerin içine 'app.jar' adıyla kopyala
 COPY target/flight-routing-system-0.0.1-SNAPSHOT.jar app.jar
 
 # Uygulamanın 8080 portunda çalışacağını belirt
