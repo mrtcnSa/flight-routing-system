@@ -2,7 +2,7 @@ package com.thy.technology.flight_routing_system.util;
 
 public final class AppConstants {
 
-    // Sınıfın dışarıdan new ile üretilmesini engelliyoruz
+   
     private AppConstants() {}
 
     // Tarih formatı sabiti
@@ -14,4 +14,4 @@ public final class AppConstants {
     
     // Cache isimleri
     public static final String CACHE_ROUTES = "routes";
-}
+} 
