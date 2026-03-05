@@ -39,27 +39,4 @@ src/main/java/.../flight_routing_system/
 ├── service/      # Ana iş mantığı ve rota hesaplama algoritmaları
 └── util/         # AppConstants ve StringUtil gibi global yardımcı araçlar
 
-classDiagram
-    direction TB
-    class Location {
-        +Long id
-        +String name
-        +String country
-        +String city
-        +String locationCode
-    }
-    class Transportation {
-        +Long id
-        +TransportationType type
-        +List~Integer~ operatingDays
-    }
-    class TransportationType {
-        <<enumeration>>
-        FLIGHT
-        BUS
-        SUBWAY
-        UBER
-    }
-    Location "1" *-- "*" Transportation : originLocation
-    Location "1" *-- "*" Transportation : destinationLocation
-    Transportation ..> TransportationType : uses
+
