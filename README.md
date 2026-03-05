@@ -27,7 +27,7 @@ Bu proje, karmaşık uçuş ve ulaşım verilerini yöneterek kullanıcılar iç
 
 Proje, Sorumlulukların Ayrılması (Separation of Concerns) prensibine göre aşağıdaki gibi modülerize edilmiştir:
 
-
+```text
 src/main/java/.../flight_routing_system/
 ├── config/       # OpenAPI (Swagger), Redis ve Security yapılandırmaları
 ├── controller/   # Dış dünyaya açılan REST API uç noktaları
