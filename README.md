@@ -38,3 +38,36 @@ src/main/java/.../flight_routing_system/
 ├── repository/   # Veritabanı erişim ve sorgulama katmanı
 ├── service/      # Ana iş mantığı ve rota hesaplama algoritmaları
 └── util/         # AppConstants ve StringUtil gibi global yardımcı araçlar
+
+
+
+## 📐 Sistem Mimarisi ve Veritabanı İlişkileri (Class Diagram)
+
+Aşağıdaki diyagram, sistemdeki temel Entity'lerin ve birbirleriyle olan ilişkilerinin veritabanına nasıl yansıdığını göstermektedir. Çift yönlü (Bidirectional) OneToMany ilişkiler kullanılmıştır.
+
+```mermaid
+classDiagram
+    direction TB
+    class Location {
+        +Long id
+        +String name
+        +String country
+        +String city
+        +String locationCode
+    }
+    class Transportation {
+        +Long id
+        +TransportationType type
+        +List~Integer~ operatingDays
+    }
+    class TransportationType {
+        <<enumeration>>
+        FLIGHT
+        BUS
+        SUBWAY
+        UBER
+    }
+    Location "1" *-- "*" Transportation : originLocation
+    Location "1" *-- "*" Transportation : destinationLocation
+    Transportation ..> TransportationType : uses
+
