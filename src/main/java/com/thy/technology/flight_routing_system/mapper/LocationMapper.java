@@ -9,7 +9,7 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface LocationMapper {
 
-    // Veritabanından geleni (Entity), Dışarıya (Response) Çevir
+    // Veritabanından geleni yani Entity' i, Dışarıya (Response) Çevir
     LocationResponse toResponse(Location location);
 
     // Dışarıdan geleni (Request), Veritabanına (Entity) Çevir

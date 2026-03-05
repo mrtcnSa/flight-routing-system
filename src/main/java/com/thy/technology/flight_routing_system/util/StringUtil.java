@@ -9,7 +9,7 @@ public final class StringUtil {
      * Örn: " ist " -> "IST"
      */
     public static String formatLocationCode(String code) {
-        if (code == null) return null;
+        if (code == null) return null; 
         return code.trim().toUpperCase();
     }
 
