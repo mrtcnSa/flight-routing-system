@@ -2,6 +2,7 @@ package com.thy.technology.flight_routing_system.service;
 
 import com.thy.technology.flight_routing_system.dto.request.TransportationRequest;
 import com.thy.technology.flight_routing_system.dto.response.TransportationResponse;
+import com.thy.technology.flight_routing_system.exception.InvalidTransportationException;
 import com.thy.technology.flight_routing_system.exception.LocationNotFoundException;
 import com.thy.technology.flight_routing_system.exception.TransportationNotFoundException;
 import com.thy.technology.flight_routing_system.model.Location;
@@ -30,6 +31,11 @@ public class TransportationService {
 
 	// CREATE
 	public TransportationResponse createTransportation(TransportationRequest request) {
+	
+        if (request.getOriginLocationId().equals(request.getDestinationLocationId())) {
+        	throw new InvalidTransportationException("Kalkış ve varış lokasyonları aynı olamaz!");          
+        }
+		
 		Transportation transportation = transportationMapper.toEntity(request);
 		assignLocations(transportation, request);
 

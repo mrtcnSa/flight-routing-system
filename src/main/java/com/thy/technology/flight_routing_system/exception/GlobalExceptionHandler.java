@@ -26,6 +26,11 @@ public class GlobalExceptionHandler {
 		return createResponse(HttpStatus.NOT_FOUND, ex.getMessage());
 	}
 
+	@ExceptionHandler(InvalidTransportationException.class)
+	public ResponseEntity<Object> handleInvalidTransportation(InvalidTransportationException ex) {
+		return createResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
+	}
+
 	private ResponseEntity<Object> createResponse(HttpStatus status, String message) {
 		Map<String, Object> body = new LinkedHashMap<>();
 		body.put("timestamp", LocalDateTime.now());
